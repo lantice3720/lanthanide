@@ -1,4 +1,42 @@
-.foldable {
+body {
+	margin: 1.5em auto;
+	max-width: 64em;
+}
+
+.foldable + label {
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+	padding: 1em 1em;
+	width: 20em;
+}
+
+.foldable ~ .foldContents {
 	overflow: hidden;
-	height: auto;
+	opacity: 0;
+	line-height: 0em;
+	transition: .2s;
+	width: 20em;
+}
+
+.foldable:checked ~ .foldContents {
+	line-height: 1.25em;
+	opacity: 1;
+}
+
+.foldable + label:after {
+	content: "▶";
+}
+
+.foldable:checked + label:after {
+	content: "▼";
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }

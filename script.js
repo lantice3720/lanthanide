@@ -1,20 +1,17 @@
 let doc = document
 let sign = doc.getElementById("sign")
 let foldables = doc.getElementsByClassName("foldable")
-let i = 0
 
-Array.from(doc).forEach(function(foldable) {
+let foldContents
+let foldLabel
+Array.from(foldables).forEach(function(foldable) {
+    console.log("asd")
 	foldable.addEventListener('click', function() {
-		if(i != 0) {
-			return
-		}
-		let interval = setInterval(function(){
-			if(i < 60) {
-				sign.style.height -= 1
-			} else {
-				i = 0
-				clearInterval(interval)
-			}
-		}, 5)
+        foldContents = foldable.nextElementSibling.nextElementSibling
+        foldLabel = foldable.nextElementSibling
+        console.log(foldLabel.innerHTML + ", " + foldContents.clientHeight)
+        if(foldContents.clientHeight == '0'){
+            console.log("opening dropdown: " + foldLabel.innerHTML)
+        }
 	})
 })

@@ -7,11 +7,12 @@ body {
 	display: flex;
 	justify-content: space-between;
 	cursor: pointer;
-	padding: 1em 1em;
 	width: 20em;
+	font-weight: bold;
 }
 
 .foldable ~ .foldContents {
+	max-height: 1em;
 	overflow: hidden;
 	opacity: 0;
 	line-height: 0em;
@@ -20,16 +21,20 @@ body {
 }
 
 .foldable:checked ~ .foldContents {
+	max-height: 100%;
 	line-height: 1.25em;
 	opacity: 1;
+	height: 100%;
 }
 
-.foldable + label:after {
-	content: "▶";
+.foldable + label span {
+	transform: rotate(0);
+	transition-duration: 0.2s;
 }
 
-.foldable:checked + label:after {
-	content: "▼";
+.foldable:checked + label span {
+	transform: rotate(90deg);
+	transition-duration: 0.2s;
 }
 
 a {
@@ -40,3 +45,5 @@ a {
 a:hover {
 	text-decoration: underline;
 }
+
+/*hmm*/

@@ -7,24 +7,22 @@ body {
 	display: flex;
 	justify-content: space-between;
 	cursor: pointer;
-	width: 20em;
 	font-weight: bold;
 }
 
 .foldable ~ .foldContents {
-	max-height: 1em;
+	height: 0;
 	overflow: hidden;
-	opacity: 0;
-	line-height: 0em;
-	transition: .2s;
-	width: 20em;
+	transition: 0.2s;
+	border: 1px solid black;
+	margin: 0;
+	/*padding-bottom: 0%;*/
+	width: auto;
 }
 
 .foldable:checked ~ .foldContents {
-	max-height: 100%;
-	line-height: 1.25em;
-	opacity: 1;
-	height: 100%;
+	/*padding-bottom: inherit;*/
+	height: auto;
 }
 
 .foldable + label span {
